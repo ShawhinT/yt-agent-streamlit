@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y \
 
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
-COPY requirements.txt ./
+COPY pyproject.toml ./
 COPY src/ ./src/
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install .
 
 EXPOSE 8501
 
