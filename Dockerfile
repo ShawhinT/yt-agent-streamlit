@@ -1,4 +1,4 @@
-FROM python:3.13.5-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
+COPY pyproject.toml ./
 COPY . .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install .
 
 EXPOSE 8501
 
