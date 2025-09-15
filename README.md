@@ -1,6 +1,6 @@
 ---
 title: YT Agent Streamlit
-emoji: 🔥
+emoji: 🤖
 colorFrom: yellow
 colorTo: blue
 sdk: docker
