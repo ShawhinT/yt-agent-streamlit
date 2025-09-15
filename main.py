@@ -49,23 +49,26 @@ async def run_streamlit_app():
     if "agent" not in st.session_state:
         st.session_state.agent = None
 
-    # Create agent if API key is provided
-    if api_key and st.session_state.agent is None:
-        os.environ["OPENAI_API_KEY"] = api_key
+    # Function to initialize agent when needed
+    def initialize_agent():
+        if st.session_state.agent is None and api_key:
+            os.environ["OPENAI_API_KEY"] = api_key
 
-        # Load system instructions
-        try:
-            with open("prompts/system_instructions.md", "r") as f:
-                system_instructions = f.read()
+            # Load system instructions
+            try:
+                with open("prompts/system_instructions.md", "r") as f:
+                    system_instructions = f.read()
 
-            st.session_state.agent = Agent(
-                name="YouTube Agent",
-                instructions=system_instructions,
-                tools=[fetch_video_transcript, fetch_intstructions],
-            )
-        except Exception as e:
-            st.error(f"Error initializing agent: {str(e)}")
-            return
+                st.session_state.agent = Agent(
+                    name="YouTube Agent",
+                    instructions=system_instructions,
+                    tools=[fetch_video_transcript, fetch_intstructions],
+                )
+                return True
+            except Exception as e:
+                st.error(f"Error initializing agent: {str(e)}")
+                return False
+        return st.session_state.agent is not None
 
     # Display chat messages
     for message in st.session_state.messages:
@@ -78,8 +81,9 @@ async def run_streamlit_app():
             st.error("Please enter your OpenAI API key in the sidebar.")
             return
 
-        if st.session_state.agent is None:
-            st.error("Agent not initialized. Please check your API key.")
+        # Initialize agent if needed
+        if not initialize_agent():
+            st.error("Failed to initialize agent. Please check your API key.")
             return
 
         # Add user message to chat

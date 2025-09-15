@@ -23,6 +23,6 @@ git remote add gh https://github.com/{your_gh_username}/yt-agent-streamlit.git
 git remote add hf https://huggingface.co/spaces/{your_hr_username}/yt-agent-streamlit.git
 
 # Push to both
-git push gh main
-git push --force hf main
+git push gh
+git push --force hf
 ```
