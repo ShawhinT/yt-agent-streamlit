@@ -57,7 +57,9 @@ async def run_streamlit_app():
 
             # Load system instructions
             try:
-                with open("prompts/system_instructions.md", "r") as f:
+                script_dir = os.path.dirname(__file__)
+                prompts_path = os.path.join(script_dir, "prompts", "system_instructions.md")
+                with open(prompts_path, "r") as f:
                     system_instructions = f.read()
 
                 st.session_state.agent = Agent(

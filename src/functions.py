@@ -59,5 +59,8 @@ def fetch_intstructions(prompt_name: str) -> str:
     Returns:
         str: Instructions for the given prompt
     """
-    with open(f"prompts/{prompt_name}.md", "r") as f:
+    import os
+    script_dir = os.path.dirname(__file__)
+    prompt_path = os.path.join(script_dir, "prompts", f"{prompt_name}.md")
+    with open(prompt_path, "r") as f:
         return f.read()
