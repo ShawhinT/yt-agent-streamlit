@@ -1,3 +1,13 @@
+---
+title: YT Agent Streamlit
+emoji: 🔥
+colorFrom: yellow
+colorTo: blue
+sdk: docker
+pinned: false
+license: apache-2.0
+short_description: Example code for creating a YouTube agent with Streamlit and hosting via Hugging Face Spaces.
+---
 # yt-agent-streamlit
 Example code for creating a YouTube agent with Streamlit and hosting via Hugging Face Spaces.
 
@@ -14,5 +24,5 @@ git remote add hf https://huggingface.co/spaces/{your_hr_username}/yt-agent-stre
 
 # Push to both
 git push gh main
-git push hf main
+git push --force-with-lease hf main
 ```
