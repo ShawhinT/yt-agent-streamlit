@@ -17,7 +17,7 @@ async def run_streamlit_app():
     )
 
     st.title("YouTube Agent")
-    st.markdown("Ask me anything about YouTube videos!")
+    st.markdown("Upload YouTube videos and ask me anything!")
 
     # Get API key from environment or user input
     env_api_key = os.getenv("OPENAI_API_KEY")
