@@ -1,3 +1,16 @@
+---
+title: YT Agent Streamlit
+emoji: 🤖
+colorFrom: yellow
+colorTo: blue
+sdk: docker
+app_port: 8501
+tags:
+  - streamlit
+pinned: false
+license: apache-2.0
+short_description: Example Space for running YT agent Streamlit app.
+---
 # yt-agent-streamlit
 Example code for creating a YouTube agent with Streamlit and hosting via Hugging Face Spaces.
 
@@ -52,17 +65,3 @@ Example code for creating a YouTube agent with Streamlit and hosting via Hugging
     ```
     git push gh
     ```
-
----
-title: YT Agent Streamlit
-emoji: 🤖
-colorFrom: yellow
-colorTo: blue
-sdk: docker
-app_port: 8501
-tags:
-  - streamlit
-pinned: false
-license: apache-2.0
-short_description: Example Space for running YT agent Streamlit app.
----
