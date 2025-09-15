@@ -8,7 +8,7 @@ from agents import Agent, Runner
 from openai.types.responses import ResponseTextDeltaEvent
 import streamlit as st
 
-from .functions import fetch_video_transcript, fetch_intstructions
+from functions import fetch_video_transcript, fetch_intstructions
 
 async def run_streamlit_app():
     st.set_page_config(
@@ -57,7 +57,7 @@ async def run_streamlit_app():
 
             # Load system instructions
             try:
-                with open("src/prompts/system_instructions.md", "r") as f:
+                with open("prompts/system_instructions.md", "r") as f:
                     system_instructions = f.read()
 
                 st.session_state.agent = Agent(
