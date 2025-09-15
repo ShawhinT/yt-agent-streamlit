@@ -3,7 +3,7 @@ import re
 from agents import function_tool
 
 @function_tool
-def fetch_youtube_transcript(url: str) -> str:
+def fetch_video_transcript(url: str) -> str:
     """
     Extract transcript with timestamps from a YouTube video URL and format it for LLM consumption
     
