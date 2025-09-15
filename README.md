@@ -4,3 +4,15 @@ Example code for creating a YouTube agent with Streamlit and hosting via Hugging
 ## QuickStart
 
 ## Hosting on HF Space
+1. Create new Space
+2. Add multiple remotes
+
+```
+# In your yt-agent-streamlit directory
+git remote add gh https://github.com/{your_gh_username}/yt-agent-streamlit.git
+git remote add hf https://huggingface.co/spaces/{your_hr_username}/yt-agent-streamlit.git
+
+# Push to both
+git push gh main
+git push hf main
+```
