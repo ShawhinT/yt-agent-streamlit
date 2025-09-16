@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+# ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
 COPY pyproject.toml ./
 COPY src/ ./src/
@@ -20,3 +20,5 @@ EXPOSE 8501
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 ENTRYPOINT ["streamlit", "run", "src/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+
