@@ -20,28 +20,18 @@ async def run_streamlit_app():
     st.title("YouTube Agent")
     st.markdown("Upload YouTube videos and ask me anything!")
 
-    # Get API key from environment or user input
-    env_api_key = os.getenv("OPENAI_API_KEY")
+    # Force users to enter their own API key (ignore environment)
+    # This ensures the app works as intended for public use
 
-    # Debug information
-    st.write("🔍 **Debug Info:**")
-    st.write(f"- `.env` file exists: {os.path.exists('.env')}")
-    st.write(f"- Environment OPENAI_API_KEY: {'SET' if env_api_key else 'NOT SET'}")
-    st.write(f"- Environment OPENAI_API_KEY value: {env_api_key[:10] + '...' if env_api_key else 'None'}")
-
-    # Sidebar for API key (only show input if no env key)
+    # Sidebar for API key input
     with st.sidebar:
         st.header("Configuration")
 
-        if env_api_key:
-            st.success("✅ API key loaded from .env file")
-            api_key = env_api_key
-        else:
-            api_key = st.text_input(
-                "OpenAI API Key",
-                type="password",
-                help="Enter your OpenAI API key to use the agent"
-            )
+        api_key = st.text_input(
+            "OpenAI API Key",
+            type="password",
+            help="Enter your OpenAI API key to use the agent"
+        )
 
         if st.button("Clear Chat"):
             st.session_state.messages = []
