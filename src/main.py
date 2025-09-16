@@ -23,6 +23,12 @@ async def run_streamlit_app():
     # Get API key from environment or user input
     env_api_key = os.getenv("OPENAI_API_KEY")
 
+    # Debug information
+    st.write("🔍 **Debug Info:**")
+    st.write(f"- `.env` file exists: {os.path.exists('.env')}")
+    st.write(f"- Environment OPENAI_API_KEY: {'SET' if env_api_key else 'NOT SET'}")
+    st.write(f"- Environment OPENAI_API_KEY value: {env_api_key[:10] + '...' if env_api_key else 'None'}")
+
     # Sidebar for API key (only show input if no env key)
     with st.sidebar:
         st.header("Configuration")
