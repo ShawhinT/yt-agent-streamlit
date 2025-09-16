@@ -11,6 +11,9 @@ short_description: Example Space for running YT agent Streamlit app.
 # yt-agent-streamlit
 Example code for creating a YouTube agent with Streamlit and hosting via Hugging Face Spaces.
 
+Resources:
+- [HF Spaces app](https://huggingface.co/spaces/shawhin/yt-agent-streamlit)
+
 ## How to Run This Example
 
 1. Clone this repo
