@@ -48,20 +48,14 @@ Resources:
     Docker Template: Blank
     Space Hardware: CPU
     ```
-2. Add multiple remotes to git repo
+2. Add another remote to git repo
 
     ```
     # In your yt-agent-streamlit directory
     git remote add hf https://huggingface.co/spaces/{your_hr_username}/yt-agent-streamlit.git
-    git remote add gh https://github.com/{your_gh_username}/yt-agent-streamlit.git
     ```
-3. Push code to HF spaces (force only needed on first push)
+3. Push code to HF spaces (may need to force first push)
 
     ```
     git push --force hf
-    ```
-4. Push code to github
-
-    ```
-    git push gh
     ```
